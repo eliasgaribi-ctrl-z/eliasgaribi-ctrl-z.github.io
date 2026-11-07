@@ -4,24 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-PQQZe+HfEv2v2dGAZVupsVCSBPxRjmNU5RI04ac6TfQ='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mWFKthwxwHZIChla/soxWmq9GrFEF71Y0YR/qArTsUM=' https://cotizador-al3d.pages.dev; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>AL3D se mudó</title>
 <style>
-  :root { color-scheme: light dark; }
+  :root { color-scheme: light dark; --fondo: #f6f5f2; --tinta: #1d1d1b; --liga: #1f5fd1; --boton: #4060f8; }
+  @media (prefers-color-scheme: dark) { :root { --fondo: #151514; --tinta: #ecebe7; --liga: #8fb8ff; } }
   body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; box-sizing: border-box;
-         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-         background: #f6f5f2; color: #1d1d1b; }
-  @media (prefers-color-scheme: dark) { body { background: #151514; color: #ecebe7; } a { color: #8fb8ff; } }
-  main { max-width: 26rem; text-align: center; }
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fondo); color: var(--tinta); }
+  main { max-width: 28rem; width: 100%; text-align: center; }
   h1 { font-size: 1.25rem; margin: 0 0 .5rem; }
-  a { color: #1f5fd1; font-weight: 600; word-break: break-all; }
+  a { color: var(--liga); font-weight: 600; word-break: break-all; }
+  .pub-entrada { margin: 1rem 0; }
+  .pub-btn { font: inherit; font-weight: 600; border: 0; border-radius: 12px; padding: 12px 18px; min-height: 48px;
+             background: var(--boton); color: #fff; cursor: pointer; width: 100%; }
+  .pub-btn:disabled { opacity: .55; cursor: default; }
 </style>
 </head>
 <body>
 <main>
   <h1>La app de AL3D se mudó</h1>
   <p>Ahora vive en <a id="nueva" href="https://cotizador-al3d.pages.dev/">cotizador-al3d.pages.dev</a>.</p>
+  <section id="mudanza" data-papel="emisor"></section>
 </main>
-<script>(function(){var N='https://cotizador-al3d.pages.dev',B='/cotizador-al3d',p=location.pathname,l=p.toLowerCase();if(l===B||l.indexOf(B+'/')===0){var u=N+(p.slice(B.length)||'/')+location.search+location.hash;document.getElementById('nueva').href=u;location.replace(u);}})();</script>
+<script>(function(){var N='https://cotizador-al3d.pages.dev',B='/cotizador-al3d',p=location.pathname,l=p.toLowerCase(),h=location.hostname;if(h==='localhost'||h==='127.0.0.1'){N=new URLSearchParams(location.search).get('nuevo')||'http://localhost:8002';}if(!(l===B||l.indexOf(B+'/')===0))return;var r=p.slice(B.length)||'/',u=N+r+location.search+location.hash,a=document.getElementById('nueva'),d=false,x=false;a.href=u;try{x=!!localStorage.getItem('al3d_mudanza');for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i)||'';if(k.indexOf('al3d')===0&&k!=='al3d_tema'&&k!=='al3d_mudanza'){d=true;break;}}}catch(e){}if(/\/verificar(\.html)?$/i.test(r)||!d||x){location.replace(u);return;}var s=document.createElement('script');s.type='module';s.src=N+'/mudanza/mudanza.js';s.onerror=function(){location.replace(u);};document.head.appendChild(s);})();</script>
 </body>
 </html>

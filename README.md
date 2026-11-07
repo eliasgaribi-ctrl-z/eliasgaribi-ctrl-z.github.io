@@ -2,20 +2,20 @@
 
 Solo un desvío. La app de AL3D vivía en `eliasgaribi-ctrl-z.github.io/cotizador-al3d/` y desde
 noviembre de 2026 vive en **https://cotizador-al3d.pages.dev**. Su repositorio es privado y
-GitHub ya no la publica, así que esa ruta la sirve ahora este sitio, que manda cada dirección
-vieja a la nueva conservando la ruta, la consulta y el ancla:
+GitHub ya no la publica, así que esa ruta la sirve ahora este sitio.
 
-    github.io/cotizador-al3d/verificar.html?f=…&c=…  →  pages.dev/verificar.html?f=…&c=…
+## Qué hace cada pieza
 
-Lo importante son los **QR impresos** en las cotizaciones en PDF: apuntan a
-`github.io/cotizador-al3d/verificar.html` y tienen que seguir verificando para siempre.
+- **Los QR impresos** (`cotizador-al3d/verificar.html?f=…&c=…`) se desvían siempre, al instante,
+  conservando la consulta. Tienen que seguir verificando para siempre.
+- **Cualquier otra ruta bajo `/cotizador-al3d/`** (`index.html`, `404.html`): si el navegador no
+  tiene datos de la app, o ya se mudó, desvía a la misma ruta en pages.dev. Si tiene datos,
+  carga `https://cotizador-al3d.pages.dev/mudanza/mudanza.js` y ofrece pasarlos a la dirección
+  nueva. Todo lo de la mudanza vive en ese archivo, en el repositorio de la app.
+- **`cotizador-al3d/sw.js`** retira la app vieja de los teléfonos que la tenían instalada: borra
+  sus cachés (solo las `al3d-*`), se da de baja y recarga la ventana, que llega a la mudanza.
+  Los datos del teléfono no los toca: son los que la mudanza pasa.
+- Fuera de `/cotizador-al3d/` solo se avisa; las demás páginas de la cuenta no se tocan.
 
-- `cotizador-al3d/index.html` y `cotizador-al3d/verificar.html` responden 200 y desvían.
-- `404.html` desvía cualquier otra ruta bajo `/cotizador-al3d/`; fuera de ella solo avisa.
-- Una sola línea de JavaScript, sin nada externo, y la CSP fija su huella: si se cambia el
-  guion hay que recalcular el `sha256` del `<meta>` o el navegador no lo corre.
-
-**No hay `cotizador-al3d/sw.js` a propósito.** Los teléfonos que ya tenían la app instalada la
-siguen abriendo desde su service worker, con sus datos (el contador de folios, la letra del
-teléfono, lo pendiente de subir), mientras su `sw.js` dé 404. Un `sw.js` aquí reemplazaría ese
-service worker en cada teléfono: es el paso de la mudanza de datos, y va con ella.
+El guion de las páginas va en línea y la CSP fija su huella: si se cambia, hay que recalcular el
+`sha256` del `<meta>` (y copiar `404.html` a `cotizador-al3d/index.html` y `verificar.html`).
