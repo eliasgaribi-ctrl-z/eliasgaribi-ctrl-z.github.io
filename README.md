@@ -12,6 +12,9 @@ GitHub ya no la publica, así que esa ruta la sirve ahora este sitio.
   tiene datos de la app, o ya se mudó, desvía a la misma ruta en pages.dev. Si tiene datos,
   carga `https://cotizador-al3d.pages.dev/mudanza/mudanza.js` y ofrece pasarlos a la dirección
   nueva. Todo lo de la mudanza vive en ese archivo, en el repositorio de la app.
+  No cuentan como datos el tema ni la marca de la TV del taller (`al3d_taller_tv`: la TV solo se
+  vuelve a vincular con su código en pages.dev), y un navegador que no carga módulos (las TV viejas)
+  se desvía directo en vez de quedarse en esta página.
 - **`cotizador-al3d/sw.js`** retira la app vieja de los teléfonos que la tenían instalada: borra
   sus cachés (solo las `al3d-*`), se da de baja y recarga la ventana, que llega a la mudanza.
   Los datos del teléfono no los toca: son los que la mudanza pasa.

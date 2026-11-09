@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mWFKthwxwHZIChla/soxWmq9GrFEF71Y0YR/qArTsUM=' https://cotizador-al3d.pages.dev; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oiwZ1hroOzWc41rRNAFkfcFckJSmfeLdbF6kOl4VIDw=' https://cotizador-al3d.pages.dev; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>AL3D se mudó</title>
 <style>
   :root { color-scheme: light dark; --fondo: #f6f5f2; --tinta: #1d1d1b; --liga: #1f5fd1; --boton: #4060f8; }
@@ -26,6 +26,6 @@
   <p>Ahora vive en <a id="nueva" href="https://cotizador-al3d.pages.dev/">cotizador-al3d.pages.dev</a>.</p>
   <section id="mudanza" data-papel="emisor"></section>
 </main>
-<script>(function(){var N='https://cotizador-al3d.pages.dev',B='/cotizador-al3d',p=location.pathname,l=p.toLowerCase(),h=location.hostname;if(h==='localhost'||h==='127.0.0.1'){N=new URLSearchParams(location.search).get('nuevo')||'http://localhost:8002';}if(!(l===B||l.indexOf(B+'/')===0))return;var r=p.slice(B.length)||'/',u=N+r+location.search+location.hash,a=document.getElementById('nueva'),d=false,x=false;a.href=u;try{x=!!localStorage.getItem('al3d_mudanza');for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i)||'';if(k.indexOf('al3d')===0&&k!=='al3d_tema'&&k!=='al3d_mudanza'){d=true;break;}}}catch(e){}if(/\/verificar(\.html)?$/i.test(r)||!d||x){location.replace(u);return;}var s=document.createElement('script');s.type='module';s.src=N+'/mudanza/mudanza.js';s.onerror=function(){location.replace(u);};document.head.appendChild(s);})();</script>
+<script>(function(){var N='https://cotizador-al3d.pages.dev',B='/cotizador-al3d',p=location.pathname,l=p.toLowerCase(),h=location.hostname;if(h==='localhost'||h==='127.0.0.1'){N=new URLSearchParams(location.search).get('nuevo')||'http://localhost:8002';}if(!(l===B||l.indexOf(B+'/')===0))return;var r=p.slice(B.length)||'/',u=N+r+location.search+location.hash,a=document.getElementById('nueva'),d=false,x=false;a.href=u;try{x=!!localStorage.getItem('al3d_mudanza');for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i)||'';if(k.indexOf('al3d')===0&&k!=='al3d_tema'&&k!=='al3d_mudanza'&&k!=='al3d_taller_tv'){d=true;break;}}}catch(e){}var s=document.createElement('script');if(/\/verificar(\.html)?$/i.test(r)||!d||x||!('noModule' in s)){location.replace(u);return;}s.type='module';s.src=N+'/mudanza/mudanza.js';s.onerror=function(){location.replace(u);};document.head.appendChild(s);})();</script>
 </body>
 </html>
